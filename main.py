@@ -4,13 +4,16 @@ import matplotlib.pyplot as plt
 from models import calc_error, modelo_geom, modelo_circ
 
 
-def make_plot():
+def make_plot(x, y, titulo="Grafica", xlabel="x", ylabel="y"):
     """
-    (Si no modificas esta cadena de texto lloro)
-    Si repites mucho tu código para
-    graficar puedes guardarlo en una función
+    Funcion para graficas.
     """
-    ... # Esto significa implementación pendiente, lo puedes eliminar
+    plt.figure()
+    plt.plot(x, y)
+    plt.title(titulo)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.show() # Esto significa implementación pendiente, lo puedes eliminar
 
 def main():
     """
