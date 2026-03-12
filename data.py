@@ -10,6 +10,8 @@ def get_stock_data(ticker:str = "^GSPC", years: int = 5, path:str = "data/sp500.
 
 def read_data(path="data/pescados.csv"):
     """Lee los datos de un csv y te los devuelve"""
+    df = pd.read_csv("data/pescados.csv")
+    print(df.head())
     ...
 
 def main():
