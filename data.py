@@ -15,7 +15,6 @@ def read_data(path="data/sp500.csv"):
     df = pd.read_csv(path)
     df["Date"] = pd.to_datetime(df["Date"]) #me convierte las fechas a formato Date
     return df
-
 def stock_plot(df):
     """Grafica el precio de cierre"""
     df = df.sort_values("Date")
@@ -27,6 +26,30 @@ def stock_plot(df):
     plt.ylabel("Precio de cierre")
     plt.grid(True)
     plt.show()
-    
+
+def rends(df):
+    """Calcula los rendimientos diarios con pandas"""
+    df = df.sort_values("Date")
+    df["Return"] = df["Close"].pct_change()
+    return df
+
+def rends_plot(df):
+    """Grafica de rendimientos diarios"""
+    plt.figure(figsize=(10,5))
+    plt.plot(df["Date"], df["Return"])
+    plt.title("Rendimientos diarios del S&P500")
+    plt.xlabel("Fecha")
+    plt.ylabel("Rendimiento")
+    plt.grid(True)
+    plt.show()
+
+def main():
+    get_stock_data()
+    df = read_data()
+    rendimientos = rends(df)
+    rends_plot(rendimientos)
+    stock_plot(df)
+
 if __name__ == "__main__":
+    
     main()
